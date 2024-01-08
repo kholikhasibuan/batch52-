@@ -1,3 +1,4 @@
+// Toggle class active untuk hamburger menu
 const listNav = document.getElementById('listNav');
 
 document.getElementById('hamburger').onclick = () => {
