@@ -60,30 +60,13 @@
     background-color: white;
 
 }
-.container-rating {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.rating-btn {
-    margin: 20px;
-    padding: 0px 20px;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 30px;
 }
-.container-button h1{
-    text-align: center;
-}
+
 
 .testimonials {
     display: flex;
@@ -100,6 +83,7 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 .testimonial img {
     height: 200px;
     object-fit: cover;
@@ -174,12 +158,11 @@
     </style>
 </head>
 <body >
-    <!-- Navbar -->
     <nav  class="nav">
         <div style="display: flex; align-items: center; height: 100%; margin-left: 30px; margin-right: 30px;">
             <ul style="display: flex; list-style-type: none; gap: 50px; align-items: center;">
                 <li>
-                    <img src="brandred.png" style="height: 35px;" />
+                    <img src="./assets/brandred(1).png" style="height: 35px;" />
                 </li>
                 <li class="nav-link nav-collapse">
                     <a href="index.html">
@@ -203,49 +186,22 @@
     </nav>
     <div class="hamburger-nav-container" id="hamburger-nav-container">
         <a href="index.html" class="active"><i class="fa fa-home" aria-hidden="true" style="margin: 5px;"></i>Home</a>
-        <a href="projectblog.html"><i class="fa-brands fa-blogger-b"style="margin:5px"></i>Myproject</a>
+        <a href="./project.html"><i class="fa-brands fa-blogger-b"style="margin:5px"></i>Myproject</a>
         <a href="contact.html"><i class="fa fa-address-book" aria-hidden="true" style="margin: 5px;"></i>Contact Me</a>
-        <a href="testimonial.html"><i class="fa-brands fa-rocketchat" style="margin:5px" ></i>Testimoni</a>
+        <a href="testimonial.html"><i class="fa-brands fa-rocketchat" style="margin:5px" ></i>Testimonial</a>
     </div>
-    <!-- Navbar -->
-         <!-- Button start -->
-         <div class="container-button">
-            <h1>My Testimonials</h1>
-            <div class="container-rating">
-                <h2> Rating By Star</h2>
-                <div class="rating">
-                    <button class="rating-btn" onclick="allTestimonials()">
-                        All
-                    </button>
-                    <button class="rating-btn" onclick="filterTestimonials(1);">
-                        1 <i class="fa-solid fa-star"></i>
-                    </button>
-                    <button class="rating-btn" onclick="filterTestimonials(2);">
-                        2 <i class="fa-solid fa-star"></i>
-                    </button>
-                    <button class="rating-btn" onclick="filterTestimonials(3);">
-                        3 <i class="fa-solid fa-star"></i>
-                    </button>
-                    <button class="rating-btn" onclick="filterTestimonials(4);">
-                        4 <i class="fa-solid fa-star"></i>
-                    </button>
-                    <button class="rating-btn" onclick="filterTestimonials(5);">
-                        5 <i class="fa-solid fa-star"></i>
-                    </button>
-                </div>
-            </div>
-<!-- button start -->
-        <div class="container">
+    <div class="container">
+        <h1>My Testimonials</h1>
         <section class="testimonials" id="testimonials">
             <!-- <div class="testimonial">
                 <img src="assets/profile/profile.png" class="profile-testimonial" />
                 <p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget lectus eu
                     libero venenatis gravida eget vel odio."</p>
-                <p class="author">- Rizki</p>
+                <p class="author">- kholik </p>
             </div> -->
         </section>
     </div>
     <script src="JS/navbar.js"></script>
-    <script src="./js/testimonials.js"></script>
+    <script src="JS/testimonials.js"></script>
 </body>
 </html>
