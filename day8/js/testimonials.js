@@ -2,7 +2,38 @@ const testimonialData = {
     Suryaelidanto: {
       author: "kholik hasibuan",
       content: "manchester united juara liga champions!",
-      image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: {
+        "Rizal": {
+            "image": "https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "author": "Rizal",
+            "rating": 4,
+            "content": "Okee banget sii"
+        },
+        "anton": {
+            "image": "https://images.pexels.com/photos/19038311/pexels-photo-19038311/free-photo-of-pria-trotoar-duduk-cerutu.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "author": "anton",
+            "rating": 1,
+            "content": "apa apaan ini!"
+        },
+        "cecep": {
+            "image": "https://images.pexels.com/photos/19040835/pexels-photo-19040835/free-photo-of-pria-jalan-jaket-potret.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "author": "cecep",
+            "rating": 5,
+            "content": "Bagus banget bang"
+        },
+        "Ujangkarbu": {
+            "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "author": "Ujang Karbu",
+            "rating": 4,
+            "content": "Lumayann lahh !"
+        },
+        "Ujang Knalpot": {
+            "image": "https://images.pexels.com/photos/810775/pexels-photo-810775.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "author": "Ujang Knalpot",
+            "rating": 3,
+            "content": "Okeeee sii"
+        }
+    },
       rating: 5,
     },
     Suryaelz: {
@@ -14,7 +45,7 @@ const testimonialData = {
     Ujangkarbu: {
       author: "deni",
       content: "tidur mu terlalu miring kawan!",
-      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: ":https//images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600",
       rating: 4,
     },
     Suryaaa: {
