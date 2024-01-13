@@ -1,72 +1,76 @@
-const testimonialDataUrl = 'https://api.npoint.io/34a2dbcf2a795bd6965e';
+// Testimonials
 
-async function fetchData(url) {
-  try {
-    const response = await fetch(url, {
-      method: 'GET',
-    });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error;
-  }
-}
+// Penggabungan promise dan juga ajax
 
-function generateTestimonialHTML(item, additionalInfoCallback) {
-  let html = `<div class="testimonial">
-    <img src="${item.image}" class="profile-testimonial" />
-    <p class="quote">"${item.content}"</p>
-    <p class="author">- ${item.author}</p>
-    <p class="author">${item.rating} <i class="fa-solid fa-star"></i></p>`;
-
-  if (additionalInfoCallback) {
-    html += additionalInfoCallback(item);
+const promise = new Promise((resolve, reject) => {
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', 'https://api.npoint.io/5d2c4ab4aee1390596be', true)
+  xhr.onload = () => {
+      if(xhr.status === 200) {
+          // console.log('berhasil', xhr.response)
+          resolve(JSON.parse(xhr.response))
+      } else {
+          // console.log('gagal', xhr.response)
+      }
   }
 
-  html += `</div>`;
+  xhr.onerror = () => {
+      // console.log('Network error! Please check your internet connection')
+  }
+  xhr.send()
+})
 
-  return html;
+function html(item) {
+  return `<div class="container-card mb-4">
+  <div class="card-testimonials">
+    <img src="${item.image}">
+    <div class="card-body mt-3">
+      <h6 class="fs-6 fw-light">${item.quotes}</h6>
+      <h1 class="d-flex justify-content-end fs-4 fw-bold mt-5">- ${item.author}</h1>
+      <div class="d-flex justify-content-end mt-3 rate-card">
+        <h2 class="fs-4 fw-bold">${item.rate}</h2>
+      <img src="../assets/icons/star.png">
+      </div>
+    </div>
+  </div>
+</div>`
 }
 
 async function allTestimonials() {
   try {
-    const testimonialData = await fetchData(testimonialDataUrl);
-    let testimonialHTML = "";
-    for (const key in testimonialData) {
-      testimonialHTML += generateTestimonialHTML(testimonialData[key]);
-    }
+      let testiHtml = '';
+      const testiData = await promise 
+      testiData.forEach((item) => {
+      testiHtml += html(item)
+      });
 
-    document.getElementById("testimonials").innerHTML = testimonialHTML;
+      document.getElementById('testimonials').innerHTML = testiHtml;
   } catch (error) {
-    console.error("Error displaying testimonials:", error);
+      console.error(error);
   }
+
 }
-
-async function filterTestimonials(rating, additionalInfoCallback) {
-  try {
-    const testimonialData = await fetchData(testimonialDataUrl);
-    let testimonialHTML = '';
-    for (const key in testimonialData) {
-      if (testimonialData.hasOwnProperty(key) && testimonialData[key].rating === rating) {
-        const item = testimonialData[key];
-        testimonialHTML += generateTestimonialHTML(item, additionalInfoCallback);
-      }
-    }
-
-    if (testimonialHTML === '') {
-      testimonialHTML = `<h3>Data not found!</h3>`;
-    }
-
-    document.getElementById('testimonials').innerHTML = testimonialHTML;
-  } catch (error) {
-    console.error("Error filtering testimonials:", error);
-  }
-}
-
-async function additionalInfo(item) {
-  return `<p class="additional-info">High Rating Testimonial</p>`;
-}
-cd 
 
 allTestimonials();
+
+async function filterTestimonials(rate) {
+  try {
+      let testiHtml = '';
+      const testiData = await promise
+      const testimonialFiltered = testiData.filter((item) => {
+          return item.rate === rate
+      });
+
+      if(testimonialFiltered.length === 0) {
+          testiHtml = `<h3> Data not found </h3>`
+      } else {
+          testimonialFiltered.forEach((item) => {
+              testiHtml += html(item) });
+      }
+      
+      document.getElementById('testimonials').innerHTML = testiHtml;
+  } catch (error) {
+      console.error(error);
+  }
+
+}
